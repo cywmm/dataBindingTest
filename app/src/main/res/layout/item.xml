@@ -5,6 +5,8 @@
 
         <import type="com.data.bind.User" />
 
+        <import type="android.view.View" />
+
         <variable
             name="user"
             type="User"></variable>
@@ -20,7 +22,8 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="15dp"
             android:gravity="center"
-            android:text="@={``+user.age}" />
+            android:text="@={``+user.age}"
+            android:visibility="@{user.age!=10 ? View.VISIBLE : View.GONE}" />
 
         <TextView
             android:layout_width="wrap_content"

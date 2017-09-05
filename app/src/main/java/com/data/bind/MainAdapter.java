@@ -32,14 +32,14 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+        inflater = LayoutInflater.from(mContext);
         ItemBinding binding = ItemBinding.inflate(inflater, parent, false);
         return new ViewHolder(binding);
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.binding.setUser(userList.get(position));
+        holder.bindTo(userList.get(position));
 
     }
 
@@ -57,7 +57,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
             this.binding = binding;
         }
 
-        public void bindData(User user) {
+        public void bindTo(User user) {
             binding.setUser(user);
             binding.executePendingBindings();
         }
